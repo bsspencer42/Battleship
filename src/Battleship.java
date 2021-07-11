@@ -161,6 +161,11 @@ public class Battleship {
                 player1HitCount++;
             }
             printBattleShip(player1TargetHist);
+
+            // Skip player 2's turn if player 1 wins
+            if (player1HitCount == 5)
+                continue;
+
             // Player 2 turn
 
             // Validate target coordinates
