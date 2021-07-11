@@ -80,8 +80,12 @@ public class Battleship {
             counter++;
         } while (counter < 6); // Required do while loop
         printBattleShip(player1);
+        // Scroll past player 1's board
+        for (int x = 0; x < 100; x++) {
+            System.out.println("");
+        }
         // Get player two ship coordinates
-        System.out.println("\nPLAYER 2, ENTER YOUR SHIPS’ COORDINATES.");
+        System.out.println("PLAYER 2, ENTER YOUR SHIPS’ COORDINATES.");
         counter = 1;
         do {
             System.out.println("Enter ship " + counter + " location:");
@@ -118,6 +122,10 @@ public class Battleship {
             counter++;
         } while (counter < 6); // Required do while loop
         printBattleShip(player2);
+        // Scroll past player 2's board
+        for (int x = 0; x < 100; x++) {
+            System.out.println("");
+        }
 
         // Play game
         // Hit counters
@@ -134,7 +142,7 @@ public class Battleship {
             // Validate target coordinates
             playerCoordValid = 0;
             while (playerCoordValid == 0) {
-                System.out.println("Player 1, enter hit row/column:");
+                System.out.println("\nPlayer 1, enter hit row/column:");
                 attackCoord = checkCoord(input, player2, player1TargetHist);
                 if (attackCoord[0] < 0 || attackCoord[1] < 0) {
                     continue;
@@ -152,13 +160,13 @@ public class Battleship {
                 System.out.println("PLAYER 1 HIT PLAYER 2’s SHIP!");
                 player1HitCount++;
             }
-
+            printBattleShip(player1TargetHist);
             // Player 2 turn
 
             // Validate target coordinates
             playerCoordValid = 0;
             while (playerCoordValid == 0) {
-                System.out.println("Player 2, enter hit row/column:");
+                System.out.println("\nPlayer 2, enter hit row/column:");
                 attackCoord = checkCoord(input, player1, player2TargetHist);
                 if (attackCoord[0] < 0 || attackCoord[1] < 0) {
                     continue;
@@ -167,15 +175,17 @@ public class Battleship {
             } // Check if attack coords valid, loop back if not
 
             // Update boards
-            attackResult = updateBoards(player1, player1TargetHist, attackCoord);
+            attackResult = updateBoards(player1, player2TargetHist, attackCoord);
 
             // Print result
             if (attackResult == 0) {
                 System.out.println("PLAYER 2 MISSED!");
-            } else {
+            }
+            else {
                 System.out.println("PLAYER 2 HIT PLAYER 1’s SHIP!");
                 player2HitCount++;
             }
+            printBattleShip(player2TargetHist);
         }
 
         // End game
