@@ -190,11 +190,15 @@ public class Battleship {
 
         // End game
         if (player1HitCount == 5) {
-            System.out.println("PLAYER 1 WINS! YOU SUNK ALL OF YOUR OPPONENT’S SHIPS!");
+            System.out.println("PLAYER 1 WINS! YOU SUNK ALL OF YOUR OPPONENT’S SHIPS!\n");
         } else {
-            System.out.println("PLAYER 2 WINS! YOU SUNK ALL OF YOUR OPPONENT’S SHIPS!");
+            System.out.println("PLAYER 2 WINS! YOU SUNK ALL OF YOUR OPPONENT’S SHIPS!\n");
         }
 
+        System.out.println("Final boards:\n");
+        printBattleShip(player1);
+        System.out.println("");
+        printBattleShip(player2);
     }
 
     // Use this method to print game boards to the console.
