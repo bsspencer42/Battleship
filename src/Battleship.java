@@ -11,20 +11,18 @@ public class Battleship {
 
         // Setup player boards
         char[][] player1 = new char[][] {
-            {' ', '0', '1', '2', '3', '4'},
-            {'0','-', '-', '-', '-', '-'},
-            {'1','-', '-', '-', '-', '-'},
-            {'2','-', '-', '-', '-', '-'},
-            {'3','-', '-', '-', '-', '-'},
-            {'4','-', '-', '-', '-', '-'},
+            {'-', '-', '-', '-', '-'},
+            {'-', '-', '-', '-', '-'},
+            {'-', '-', '-', '-', '-'},
+            {'-', '-', '-', '-', '-'},
+            {'-', '-', '-', '-', '-'},
         };
         char[][] player2 = new char[][] {
-            {' ', '0', '1', '2', '3', '4'},
-            {'0','-', '-', '-', '-', '-'},
-            {'1','-', '-', '-', '-', '-'},
-            {'2','-', '-', '-', '-', '-'},
-            {'3','-', '-', '-', '-', '-'},
-            {'4','-', '-', '-', '-', '-'},
+            {'-', '-', '-', '-', '-'},
+            {'-', '-', '-', '-', '-'},
+            {'-', '-', '-', '-', '-'},
+            {'-', '-', '-', '-', '-'},
+            {'-', '-', '-', '-', '-'},
         };
 
         // Get player one ship coordinates
@@ -56,19 +54,19 @@ public class Battleship {
                 continue;
             }
             // Check if position already has ship
-            if (player1[xCoord + 1][yCoord + 1] == '@') {
+            if (player1[xCoord][yCoord] == '@') {
                 System.out.println("You already have a ship there. Choose different coordinates.");
                 continue;
             } else {
-                player1[xCoord + 1][yCoord + 1] = '@';
+                player1[xCoord][yCoord] = '@';
             }
 
             // Increment counter
             counter++;
         } while (counter < 6); // Required do while loop
-
+        printBattleShip(player1);
         // Get player two ship coordinates
-        System.out.println("PLAYER 2, ENTER YOUR SHIPS’ COORDINATES.");
+        System.out.println("\nPLAYER 2, ENTER YOUR SHIPS’ COORDINATES.");
         counter = 1;
         do {
             System.out.println("Enter ship " + counter + " location:");
@@ -104,7 +102,7 @@ public class Battleship {
             // Increment counter
             counter++;
         } while (counter < 6); // Required do while loop
-
+        printBattleShip(player2);
     }
 
     // Use this method to print game boards to the console.
