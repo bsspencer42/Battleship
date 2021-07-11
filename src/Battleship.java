@@ -24,7 +24,22 @@ public class Battleship {
             {'-', '-', '-', '-', '-'},
             {'-', '-', '-', '-', '-'},
         };
+        char[][] player1TargetHist = new char[][] {
+            {'-', '-', '-', '-', '-'},
+            {'-', '-', '-', '-', '-'},
+            {'-', '-', '-', '-', '-'},
+            {'-', '-', '-', '-', '-'},
+            {'-', '-', '-', '-', '-'},
+        };
+        char[][] player2TargetHist = new char[][] {
+            {'-', '-', '-', '-', '-'},
+            {'-', '-', '-', '-', '-'},
+            {'-', '-', '-', '-', '-'},
+            {'-', '-', '-', '-', '-'},
+            {'-', '-', '-', '-', '-'},
+        };
 
+        // BOARD SETUP
         // Get player one ship coordinates
         System.out.println("PLAYER 1, ENTER YOUR SHIPS’ COORDINATES.");
         int counter = 1;
@@ -103,6 +118,10 @@ public class Battleship {
             counter++;
         } while (counter < 6); // Required do while loop
         printBattleShip(player2);
+
+        // Play game
+        System.out.println("\nPlayer 1, enter hit row/column:");
+
     }
 
     // Use this method to print game boards to the console.
